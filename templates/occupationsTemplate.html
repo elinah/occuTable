@@ -6,8 +6,15 @@
   </head>
 
   <body>
-    {% for item in collection %}
-     {{ item }}
+    <table style="width:100%" border=1>
+      <tr>
+	<th>Possible Jobs</th>
+	<th>Percentage</th>
+      </tr>
+      {% for item in collection %}
+      <tr>
+	<td>{{ item }}</td>
+	<td>collection[{{ item }}]</td>
      <br>
     {% endfor %}
   </body>
