@@ -13,8 +13,6 @@ with open('occupations.csv') as csvfile:
         percent = float(row['Percentage'])
         if (job != 'Total'): myDict[job] = percent
 
-
-@app.route("/occupations")
 def randOcc():
     benchmark = uniform(0, sum(myDict.itervalues())) #random number between 0 and the sum of the values of each key 
     total = 0.0
@@ -23,8 +21,12 @@ def randOcc():
         #print "index:" + str(index) + "total:" + str(total)
         if benchmark < total:
             #print "WINN"
-            return render_template('occupationsTemplate.html', title = "Occupations", collection = myDict)
-    return render_template('occupationsTemplate.html', title = "Occupations", collection = myDict)
+            return key
+    return key
+ 
+@app.route("/occupations")
+def occupations():
+  return render_template('occupationsTemplate.html', title = "Occupations", collection = myDict, occ = randOcc())
 
 if __name__ == '__main__':
     app.debug = True

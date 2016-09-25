@@ -6,7 +6,8 @@
   </head>
 
   <body>
-    <table style="width:100%" border=1>
+    <h1>These are your possible jobs:</h1>
+    <table style="width:50%" border=1>
       <tr>
 	<th>Possible Jobs</th>
 	<th>Percentage</th>
@@ -14,9 +15,10 @@
       {% for item in collection %}
       <tr>
 	<td>{{ item }}</td>
-	<td>collection[{{ item }}]</td>
-     <br>
+	<td>{{ collection[item] }}</td>
     {% endfor %}
+    </table>
+    <p><b>Your occupation should be:</b> {{ occ }}</p>
   </body>
 
 </html>
