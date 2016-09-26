@@ -6,16 +6,20 @@
   </head>
 
   <body>
-    <h1>These are your possible jobs:</h1>
+    <h1>Finding the right job can be difficult. So, here's a nice list of them.</h1>
+    <p>You are given the name of the occupation, the percentage it makes up of the U.S. workforce, and some links to help you get started.</p>
+    <p>Underneath you will find the perfect job for you!</p>
     <table style="width:50%" border=1>
       <tr>
 	<th>Possible Jobs</th>
 	<th>Percentage</th>
+  <th>Helpful Links</th>
       </tr>
       {% for item in collection %}
       <tr>
 	<td>{{ item }}</td>
-	<td>{{ collection[item] }}</td>
+	<td>{{ collection[item][0] }}</td>
+  <td><a href={{ collection[item][1] }}>Learn more here</a></td>
     {% endfor %}
     </table>
     <p><b>Your occupation should be:</b> {{ occ }}</p>
